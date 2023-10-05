@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A new Flutter project.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="sprinkler_system">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <title>sprinkler_system</title>
+  <link rel="manifest" href="manifest.json">
+
+  <script>
+    // The value below is injected by flutter build, do not touch.
+    var serviceWorkerVersion = "3622431163";
+  </script>
+  <!-- This script adds the flutter initialization JS code -->
+  <script src="flutter.js" defer></script>
+  <style>
+    .container {
+      padding-top: 20%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .spinner-4 {
+      width: 100px;
+      --b: 8px;
+      /* the border thickness */
+      aspect-ratio: 1;
+      border-radius: 50%;
+      padding: 1px;
+      background: conic-gradient(#0000 10%, #f03355) content-box;
+      -webkit-mask:
+        repeating-conic-gradient(#0000 0deg, #000 1deg 20deg, #0000 21deg 36deg),
+        radial-gradient(farthest-side, #0000 calc(100% - var(--b) - 1px), #000 calc(100% - var(--b)));
+      -webkit-mask-composite: destination-in;
+      mask-composite: intersect;
+      animation: s4 1s infinite steps(10);
+    }
+
+    @keyframes s4 {
+      to {
+        transform: rotate(1turn)
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="spinner-4"></div>
+  </div>
+  <script>
+    window.addEventListener('load', function (ev) {
+      // Download main.dart.js
+      _flutter.loader.loadEntrypoint({
+        serviceWorker: {
+          serviceWorkerVersion: serviceWorkerVersion,
+        },
+        onEntrypointLoaded: function (engineInitializer) {
+          engineInitializer.initializeEngine().then(function (appRunner) {
+            appRunner.runApp();
+          });
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
